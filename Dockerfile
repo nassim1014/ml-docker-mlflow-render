@@ -13,5 +13,8 @@ ENV GIT_PYTHON_REFRESH=quiet
 # Copy the source code
 COPY src src
 
+# Expose the MLflow port
+EXPOSE 5000
+
 # Command to run the training script
 CMD ["python", "src/train.py"]
