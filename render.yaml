@@ -1,0 +1,18 @@
+# render.yaml
+services:
+  - type: web
+    name: mlflow-tracking-server
+    env: docker
+    plan: free
+    repo: https://github.com/nassim1014/ml-docker-mlflow-render
+    branch: main
+    dockerfilePath: Dockerfile
+    buildCommand: docker-compose build
+    startCommand: docker-compose up
+    envVars:
+      - key: MLFLOW_TRACKING_URI
+        value: http://mlflow-tracking-server:5000
+      - key: BACKEND_STORE_URI
+        value: sqlite:///mlflow.db
+      - key: DEFAULT_ARTIFACT_ROOT
+        value: ./mlruns
