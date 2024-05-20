@@ -3,8 +3,8 @@ version: '3.8'
 
 services:
   mlflow:
-    image: mlflow/mlflow:latest
-    command: mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlruns --host 0.0.0.0 --port 5000
+    image: ghcr.io/mlflow/mlflow:latest
+    command: mlflow server --backend-store-uri file:///mlflow/backend --default-artifact-root /mlflow/artifacts --host 0.0.0.0 --port 5000
     volumes:
       - ./mlruns:/mlruns
       - ./mlflow.db:/mlflow.db
